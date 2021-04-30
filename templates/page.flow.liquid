@@ -1,0 +1,129 @@
+<style>
+@media only screen and (max-width: 799px) {
+  #shopify-section-header { display: none !important;}
+  footer { display: none !important;}
+  main { padding-top: 0 !important; }
+ .upper-pad { padding-top: 0 !important;}
+  .banner { display: none !important; }
+}
+ #dnav { background: white; }
+</style>
+<main>
+<div id="flow">
+  <section id="paca-intro">
+    <div class="tac prog-bar">
+      <div class="prog filled"></div>
+      <div class="prog"></div>
+      <div class="prog"></div>
+    </div>
+    <h1 class="close-flow tar mo"><a href="/">✕</a></h1>
+    <div id="intro-text">
+      <h1 class="accent nm tac">Hi, I'm Paca!</h1>
+      <p class="nmt tac nmt large">Did you know my fleece <br class="mo">is so soft and <br class="do"> rare the Incas<br class="mo"> valued it more than gold?</p>
+      <div class="flow-button border-gray continue clickable" onclick="ga('send', 'event', 'Flow Progress', 'Next', 'Flow Start');"><p class="tac nm">Cool, let's get started!</p></div>
+    </div>
+  </section>
+    <section style="display:none; background-color:#FEE7D8;" id="wool-vs-fleece">
+    <div class="tac prog-bar nmb">
+      <div class="prog filled"></div>
+      <div class="prog filled"></div>
+      <div class="prog"></div>
+    </div>
+   <h1 class="close-flow tar mo nmb" onclick="ga('send', 'event', 'Flow Progress', 'X', 'Slide 3');"><a href="/">✕</a></h1>
+    <div class="flex-container-no jcc">
+      <div>
+        <h1 class="tac nmb"><span class="vis-hid text-fade-in accent">Don't.</span><span class="vis-hid text-fade-in accent"> Tell. </span><span class="vis-hid text-fade-in accent">Wool.</span></h1>
+        <h4 class="tac nmt">There's a new fleece in town.</h4>
+        <div class="flex-container-no">
+          <div class="half-no">
+      	    <h4 class=" nmt tac accent" style="font-size: 12pt;">Alpaca Fleece</h4>
+            <div class="ma" style="width: fit-content;">
+              <div class="flex-container-no">
+                <img src="{{'check-01.png' | asset_url}}"  class="icon"/>
+                <span class="subscript">smooth & soft</span>
+              </div>
+              <div class="flex-container-no">
+                <img src="{{'check-01.png' | asset_url}}" class="icon"/>
+                <span class="subscript">wicks moisture</span> 
+              </div>
+              <div class="flex-container-no">
+                <img src="{{'check-01.png' | asset_url}}" class="icon"/>
+                <span class="subscript">hypoallergenic</span>
+              </div>
+            </div>
+            <img src="{{'AlpacaIllustration-02.png' | asset_url}}" class="sheep-alpaca-icon" />
+          </div>
+          <div class="half-no">
+            <h4 class="nmt tac accent" style="font-size: 12pt;">Sheep's Wool</h4>      
+            <div class="ma" style="width: fit-content;">
+              <div class="flex-container-no">
+                <img src="{{'exes.png' | asset_url}}"  class="icon"/>
+                <span class="subscript">coarse</span>
+              </div>
+              <div class="flex-container-no">
+                <img src="{{'exes.png' | asset_url}}" class="icon"/>
+                <span class="subscript">absorbs moisture</span> 
+              </div>
+              <div class="flex-container-no">
+                <img src="{{'exes.png' | asset_url}}" class="icon"/>
+                <span class="subscript">irritates skin</span>
+              </div>
+            </div>
+            <img src="{{'SheepIllustration-03.png' | asset_url}}" class="sheep-alpaca-icon" />
+          </div>
+        </div>
+
+     <div class="flow-button border-gray continue clickable" onclick="ga('send', 'event', 'Flow Progress', 'Next', 'Slide 3');"><p class="tac nm">Show Me How It Works</p></div>
+      <p class=" tac back clickable">← Back</p>
+            </div>
+
+  </section>
+  <section style="display:none;" id="charity-slide">
+
+      <a href="/" onclick="ga('send', 'event', 'Flow Progress', 'X', 'Slide 5');" class="mo"><h1 class="close-flow tar text-white nmb">✕</h1></a>
+    
+     <div class="tac" id="exit-text">
+       <video width="300" muted autoplay playsinline>
+           <source src="{{'FinalFlowGifCrew_Updated.mov' | asset_url}}" type="video/mp4">
+       </video>
+        <a href="/"><div class="flow-button border-gray clickable" onclick="ga('send', 'event', 'Flow Progress', 'Next', 'Flow End');"><p class="tac nm">Take me to Pacas!</p></div></a>
+        <p class="slide2 tac back clickable">← Back</ps>
+
+      </div>
+  </section>
+</div>
+</main>
+<script>
+  $('.continue').click(function() {
+    let currentPage = $(this).closest('section').hide().next('section'); 
+    if ($(currentPage).attr("id") == "wool-vs-fleece" ) {
+      $(currentPage).fadeIn();
+setTimeout(function(){
+    $('.vis-hid:first-of-type').removeClass('vis-hid')
+ }, 250);
+setTimeout(function(){
+    $('.vis-hid:nth-of-type(2n)').removeClass('vis-hid')
+ }, 750);
+setTimeout(function(){
+    $('.vis-hid:nth-of-type(3n)').removeClass('vis-hid')
+ }, 1250);
+    }
+    else { 
+      $(currentPage).fadeIn();
+    }
+  })
+  $('.back').click(function() {
+    if ($('#dye').is(":visible")) {
+      $('#dye').hide(); 
+      $('#color-style').removeClass('secondary-background')
+      $('#choose').fadeIn()
+    }
+    else { 
+    $(this).closest('section').hide().prev('section').fadeIn(); 
+  }
+  })
+</script>
+
+<style>
+  .sheep-alpaca-icon { width: 150px; display: block; margin: 0 auto; }
+</style>

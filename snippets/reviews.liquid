@@ -1,0 +1,47 @@
+<section class=" accent-padding tac clickable" id="review-snippet">
+  {% if product.title contains  "Women's Crew Pacas Socks" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Women's Low Cut Pacas Socks" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Men's Crew Pacas Socks" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Men's Low Cut Pacas Socks" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Kid's Crew" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Kid's Low" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% elsif product.title contains "Toddler" %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% else %}
+  <img src="{{'4.5starsgrey-01.png' | asset_url}}" alt="4.5 Stars" class="ib review-stars" /><span class="review-span">672</span>
+  {% endif %}
+  <a href="/pages/reviews"><p class="read-reviews nm">Read Reviews</p></a>
+</section>
+
+<style>
+  #all-reviews-modal {
+    height: 90%; 
+    width: 90%; 
+    z-index: 999; 
+    background-color: white; 
+  }
+  #pacas-review-iframe { 
+    height: calc(100% - 10px);
+    width: calc(100% - 10px); 
+  	border: none;
+  }
+  .review-stars {
+    vertical-align: middle; 
+  }
+  .review-span {
+    vertical-align: bottom;
+    font-weight: bold; 
+    margin-left: 5px;
+    line-height: 20px; 
+  }
+  .read-reviews {
+    text-decoration: underline; 
+  }
+</style>
+
