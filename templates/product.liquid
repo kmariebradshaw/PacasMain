@@ -1,22 +1,14 @@
-<style>
-nav {
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.2);
-  background: white;
-}
-</style>  
-
 <main id="product" itemscope itemtype="http://schema.org/Product">
-<meta itemprop="name" content="{{ product.title }}">
-<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-<meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
-
-<section class="flex-container-do accent-padding">
+  <meta itemprop="name" content="{{ product.title }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
+   <section class="flex-container-do accent-padding aifs">
       <h3 class="nmb mo-plus tac">{{ product.title }}</h3>
 
   <div class="half-do" id="product-image-wrapper">
     <div class="flex-container-no jcc">
       {% unless product.type == "Gift Card" %}
-        <div class="left-arrow clickable"><p class="large">⌃</p></div>
+        <div class="left-arrow clickable"><p class="large" style="font-size: 22pt">⌃</p></div>
       {% endunless %}
       <div class="tac">
         {% for variant in product.variants %}
@@ -35,7 +27,7 @@ nav {
         {% endif %}
       </div>
       {% unless product.type == "Gift Card" %}
-        <div class="right-arrow clickable"><p class="large">⌃</p></div>
+        <div class="right-arrow clickable"><p class="large" style="font-size: 22pt;">⌃</p></div>
       {% endunless %}
     </div>
     <p class="tac do">{{ product.description }}</p> 
@@ -117,7 +109,7 @@ nav {
 </style>
          <img src="{{'PacasBug-03.png' | asset_url }}" class="product-guarantee mo-plus block ma" alt="Comfort Guaranteed"/> 
           {% endif %}
-          <p class="tac mo">{{ product.description }}</p>
+          <p class="tac mo nmb">{{ product.description }}</p>
 
         </div>
 

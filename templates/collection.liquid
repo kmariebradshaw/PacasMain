@@ -1,15 +1,65 @@
 <main id="{{collection.title | handleize}}"> 
-
-
-  <section class="page-title accent-padding" id="{{collection.title | handleize}}-wrapper">
-    <div class="atf-float tac">
-      {% if collection.title == "Women's Performance" %}
-      	      <h1 class="nm accent" style="font-weight:lighter;">Women's <br> Performance</h1>
-	{% else %}
-      <h1 class="nm accent" style="font-weight:lighter;">{{collection.title}}</h1>
+  <section class="background-blue page-title flex-container-no" id="{{collection.title | handleize}}-wrapper">
+      {% if collection.title contains 'Women' %}
+        <img src="{{'women-atf-head.png' | asset_url}}" class="alpaca-head" />
+        <div class="collections-header-title tac">
+          <h1 class="nm"> Shop {{collection.title | truncatewords: 1, ""}}</h1>        
+          <h2 class="nm light">{{ collection.title | remove: "Women's"}}</h2>
+          {% if collection.title contains "Performance" %}
+            <img src="{{'performance-row-col.png' | asset_url}}" class="fw" />
+          {% elsif collection.title contains "Crew" %}
+            <img src="{{'Women.Cre.Row.png' | asset_url}}" class="fw" />
+          {% elsif collection.title contains "No Show" %}
+            <img src="{{'noshow_row.new-col.png' | asset_url}}" class="fw" />
+          {% elsif collection.title contains "Low Cut" %}
+            <img src="{{'LowCut.RowC-col.png' | asset_url}}" class="fw" />
+          {% endif %}
+        </div>
+      {% elsif collection.title contains 'Men' %}
+        <img src="{{'men-atf-head.png' | asset_url}}" class="alpaca-head" />
+         <div class="collections-header-title tac">
+          <h1 class="nm"> Shop {{collection.title | truncatewords: 1, ""}}</h1>        
+          <h2 class="nm light">{{ collection.title | remove: "Men's"}}</h2>
+          {% if collection.title contains "Low Cut" %}
+            <img src="{{'men-low-cut-col.png' | asset_url}}" class="fw" />
+          {% elsif collection.title contains "Crew" %}
+             <img src="{{'men-col-crew.png' | asset_url}}" class="fw" />
+          {% endif %}
+         </div>
+      {% else %}
+        <img src="{{'kids-atf-head.png' | asset_url}}" class="alpaca-head" />
+        <div class="collections-header-title tac">
+          <h1 class="nm"> Shop {{collection.title | truncatewords: 1, ""}}</h1>
+          {% if collection.title contains "Youth" %}        
+            <h2 class="nm light">{{ collection.title | remove: "Youth"}}</h2>
+            {% if collection.title contains "Low Cut" %}
+              <img src="{{'kids-low-col.png' | asset_url}}" class="fw" />
+            {% elsif collection.title contains "Crew" %}
+              <img src="{{'kids.crew.row-col.png' | asset_url}}" class="fw" />
+            {% endif %}
+          {% else %}
+            <img src="{{'tot.Rows.png' | asset_url}}" class="fw" />
+          {% endif %}
+        </div>
       {% endif %}
-    </div>
+
   </section>
+<style>
+  .light { font-weight: 300 !important; }
+  .collections-header-title { 
+    display: inline-block; 
+    vertical-align: top; 
+    margin: 20px;
+    padding: 20px;
+    border: 10px solid gray;
+    background-color: white;
+  }
+  .alpaca-head { 
+    max-width: 200px; 
+    min-width: 20%;
+    align-self: flex-end;
+  }
+</style>
 
 
   <section class="row">
@@ -468,155 +518,6 @@
       background-repeat: no-repeat; 
       }
 
-  @media only screen and (min-width: 800px) {
-    #womens-low-cut-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_DesktopWomensLow.jpg' | asset_url }}"); 
-        background-size: contain; 
-        background-repeat: no-repeat; 
-        background-position: bottom left; 
-        background-color: #F4D9D9; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        height: 300px;
-        }
-    #toddler-wrapper {
-      background-image: url("{{'KidsToddlerATF_Desktop.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom left;
-        background-color: #C6D6E1;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white; 
-        }
-    #womens-crew-wrapper, #womens-no-show-wrapper, #womens-performance-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_WomenCrew2021.jpg' | asset_url }}"); 
-        background-size: contain; 
-        background-repeat: no-repeat; 
-        background-position: bottom left; 
-        background-color: #7FACD5; 
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        }
-    
-    #mens-low-cut-wrapper, #mens-crew-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_CrewMen2021.jpg' | asset_url }}"); 
-        background-size: contain; 
-        background-repeat: no-repeat; 
-        background-position: bottom left; 
-        background-color: #85C3EA; 
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white; 
-        }
-    #youth-crew-wrapper {
-      background-image: url("{{'KidsCrewATF_Mobile.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom left;
-        background-color: #C8EDEA;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        }
-    #youth-low-cut-wrapper {
-      background-image: url("{{'KidsLowATF_Desktop.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom left;
-        background-color: #E4EBCA; 
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white; 
-        }
-  }
-  @media only screen and (max-width: 799px) {
-    #womens-low-cut-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_MobileWomenLow.jpg' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-color: #F4D9D9;
-        height: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-    #youth-low-cut-wrapper {
-      background-image: url("{{'KidsLowATF_Mobile.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-color: #E4EBCA;
-        height: 50vw; 
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-    #toddler-wrapper {
-      background-image: url("{{'KidsToddlerATF_Mobile.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-color: #C6D6E1;
-        height: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-    #youth-crew-wrapper {
-      background-image: url("{{'KidsCrewATF_Mobile.png' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-color: #C8EDEA;
-        height: 50vw; 
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-    #womens-crew-wrapper, #womens-no-show-wrapper, #womens-performance-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_MobileWomensCrew2021.jpg' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-color: #7FACD5; 
-        height: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-    #mens-low-cut-wrapper, #mens-crew-wrapper {
-      background-image: url("{{'AlpacaCatalogHeaders_MobileMensCrew.jpg' | asset_url }}"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom left;
-        background-color: #85C3EA; 
-        height: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        }
-  }
   .row {
     display: flex; 
     flex-flow: row wrap; 
@@ -647,27 +548,26 @@
   }
   @media only screen and (min-width: 589px) and (max-width: 1099px) {
     .col h3 { height: 69px; font-size: 14pt; }
-        .slvr-col-img-wrapper { height: 150px; }
+        .slvr-col-img-wrapper { height: 200px; }
 
   }
   @media only screen and (min-width: 450px) and (max-width: 588px) {
     .col h3 { height: 69px; }
-        .slvr-col-img-wrapper { height: 150px; }
-  }
+/*        .slvr-col-img-wrapper { height: 250px; }
+*/  }
   @media only screen and (max-width: 449px) {
     .col h3 { height: 76px; font-size: 12pt; }
-        .slvr-col-img-wrapper { height: 150px; }
     .atf-float h1 { font-size: 17pt; }
 
   }
     @media only screen and (min-width: 350px) and (max-width: 449px) {
-        .slvr-col-img-wrapper { height: 150px; }
-
+/*        .slvr-col-img-wrapper { height: 200px; }
+*/
   }
-    @media only screen and (max-width: 349px) {
-        .slvr-col-img-wrapper { height: 100px; }
+/*    @media only screen and (max-width: 349px) {
+        .slvr-col-img-wrapper { height:200px; }
 
-  }
+  }*/
 
   @media only screen and (min-width: 589px) and (max-width: 799px) {
     .col { flex: 0 0 33% !important; }
