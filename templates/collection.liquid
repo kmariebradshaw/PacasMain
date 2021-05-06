@@ -6,13 +6,13 @@
           <h1 class="nm"> Shop {{collection.title | truncatewords: 1, ""}}</h1>        
           <h2 class="nm light">{{ collection.title | remove: "Women's"}}</h2>
           {% if collection.title contains "Performance" %}
-            <img src="{{'performance-row-col.png' | asset_url}}" class="fw" />
+            <img src="{{'performance-row-col.png' | asset_url}}" class="fw do" />
           {% elsif collection.title contains "Crew" %}
-            <img src="{{'Women.Cre.Row.png' | asset_url}}" class="fw" />
+            <img src="{{'Women.Cre.Row.png' | asset_url}}" class="fw do" />
           {% elsif collection.title contains "No Show" %}
-            <img src="{{'noshow_row.new-col.png' | asset_url}}" class="fw" />
+            <img src="{{'noshow_row.new-col.png' | asset_url}}" class="fw do" />
           {% elsif collection.title contains "Low Cut" %}
-            <img src="{{'LowCut.RowC-col.png' | asset_url}}" class="fw" />
+            <img src="{{'LowCut.RowC-col.png' | asset_url}}" class="fw do" />
           {% endif %}
         </div>
       {% elsif collection.title contains 'Men' %}
@@ -21,9 +21,9 @@
           <h1 class="nm"> Shop {{collection.title | truncatewords: 1, ""}}</h1>        
           <h2 class="nm light">{{ collection.title | remove: "Men's"}}</h2>
           {% if collection.title contains "Low Cut" %}
-            <img src="{{'men-low-cut-col.png' | asset_url}}" class="fw" />
+            <img src="{{'men-low-cut-col.png' | asset_url}}" class="fw do" />
           {% elsif collection.title contains "Crew" %}
-             <img src="{{'men-col-crew.png' | asset_url}}" class="fw" />
+             <img src="{{'men-col-crew.png' | asset_url}}" class="fw do" />
           {% endif %}
          </div>
       {% else %}
@@ -33,16 +33,16 @@
           {% if collection.title contains "Youth" %}        
             <h2 class="nm light">{{ collection.title | remove: "Youth"}}</h2>
             {% if collection.title contains "Low Cut" %}
-              <img src="{{'kids-low-col.png' | asset_url}}" class="fw" />
+              <img src="{{'kids-low-col.png' | asset_url}}" class="fw do" />
             {% elsif collection.title contains "Crew" %}
-              <img src="{{'kids.crew.row-col.png' | asset_url}}" class="fw" />
+              <img src="{{'kids.crew.row-col.png' | asset_url}}" class="fw do" />
             {% endif %}
           {% else %}
-            <img src="{{'tot.Rows.png' | asset_url}}" class="fw" />
+            <img src="{{'tot.Rows.png' | asset_url}}" class="fw do" />
           {% endif %}
         </div>
       {% endif %}
-
+ 
   </section>
 <style>
   .light { font-weight: 300 !important; }
@@ -52,8 +52,8 @@
     margin: 20px;
     padding: 20px;
     border: 10px solid gray;
-    background-color: white;
-  }
+/*    background-color: white;
+*/  }
   .alpaca-head { 
     max-width: 200px; 
     min-width: 20%;
