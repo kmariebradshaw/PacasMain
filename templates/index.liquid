@@ -20,9 +20,10 @@
       </div> 
     </div>
   </section>
-  <img src="{{'Noshow.Sockrow.png' | asset_url}}" class="fw socks-preview-fade socks-preview-fade-visible" alt="No Show Socks"/>
-  <img src="{{'ath-layered-row.png' | asset_url}}" style="display: none;" class="fw socks-preview-fade" alt="Low Cut Socks"/>
-  <img src="{{'low-layered-row.png' | asset_url}}" style="display: none;" class="fw socks-preview-fade" alt="Performance Socks"/>
+  <section class="wrap-container fw">
+    <div class="sliding-background all-socks-slide"></div>
+  </section>
+
  
   <script>
   $(document).ready(function() { 
@@ -36,11 +37,12 @@
     }, 3000)
   })
   </script>
+
   <section class="index-reviews">
     <iframe src="https://pacas-reviews.herokuapp.com/welcome/show" id="iFrame1"></iframe>
   </section> 
   <section class="accent-padding tac" id="softness-grid">
-    <h3 class="tac" style="font-weight: normal;max-width: 800px; margin: 20px auto;">Alpacas' unique molecular composition combines the advantages of Merino Wool and Cashmere.</h3>
+    <h3 class="tac" style="font-weight: normal;max-width: 800px; margin: 0 auto 20px auto;">Alpacas' unique molecular composition combines the advantages of Merino Wool and Cashmere.</h3>
     <img data-src="{{'SoftnessScale_Desktop.png' | asset_url}}" alt="Softness Scale" class="fw do lazyload" style="max-width: 1200px; margin: 0 auto;">
     <img data-src="{{'Off.png' | asset_url}}" alt="Softness Scale" class="fw mo lazyload">
   </section>
