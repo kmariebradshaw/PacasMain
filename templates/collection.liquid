@@ -7,12 +7,16 @@
           <h2 class="nm light">{{ collection.title | remove: "Women's"}}</h2>
           {% if collection.title contains "Performance" %}
             <img src="{{'performance-row-col.png' | asset_url}}" class="fw do" />
+            <img src="{{'KidCrew_Stack.png' | asset_url}}" class="fw mo" />
           {% elsif collection.title contains "Crew" %}
             <img src="{{'Women.Cre.Row.png' | asset_url}}" class="fw do" />
+            <img src="{{'WomenCrew_Stack.png' | asset_url}}" class="fw mo" />
           {% elsif collection.title contains "No Show" %}
             <img src="{{'noshow_row.new-col.png' | asset_url}}" class="fw do" />
+            <img src="{{'WomenNo_Stacked.png' | asset_url}}" class="fw mo" />
           {% elsif collection.title contains "Low Cut" %}
             <img src="{{'LowCut.RowC-col.png' | asset_url}}" class="fw do" />
+            <img src="{{'WomenLow_stack.png' | asset_url}}" class="fw mo" />
           {% endif %}
         </div>
       {% elsif collection.title contains 'Men' %}
@@ -22,8 +26,10 @@
           <h2 class="nm light">{{ collection.title | remove: "Men's"}}</h2>
           {% if collection.title contains "Low Cut" %}
             <img src="{{'men-low-cut-col.png' | asset_url}}" class="fw do" />
+            <img src="{{'MenLow_Stack.png' | asset_url}}" class="fw mo" />
           {% elsif collection.title contains "Crew" %}
              <img src="{{'men-col-crew.png' | asset_url}}" class="fw do" />
+             <img src="{{'men-crew-stack.png' | asset_url}}" class="fw mo" />
           {% endif %}
          </div>
       {% else %}
@@ -34,11 +40,14 @@
             <h2 class="nm light">{{ collection.title | remove: "Youth"}}</h2>
             {% if collection.title contains "Low Cut" %}
               <img src="{{'kids-low-col.png' | asset_url}}" class="fw do" />
+              <img src="{{'KidsLow_Stack.png' | asset_url}}" class="fw mo" />
             {% elsif collection.title contains "Crew" %}
               <img src="{{'kids.crew.row-col.png' | asset_url}}" class="fw do" />
+              <img src="{{'KidCrew_Stack.png' | asset_url}}" class="fw mo" />
             {% endif %}
           {% else %}
             <img src="{{'tot.Rows.png' | asset_url}}" class="fw do" />
+            <img src="{{'KidsTot_Stack.png' | asset_url}}" class="fw mo" />
           {% endif %}
         </div>
       {% endif %}
