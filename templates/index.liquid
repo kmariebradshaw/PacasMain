@@ -20,19 +20,33 @@
       </div> 
     </div>
   </section>
-  <img src="{{'Noshow.Sockrow.png' | asset_url}}" class="fw" alt="No Show Socks"/>
-   <section class="index-reviews">
+  <img src="{{'Noshow.Sockrow.png' | asset_url}}" class="fw socks-preview-fade socks-preview-fade-visible" alt="No Show Socks"/>
+  <img src="{{'ath-layered-row.png' | asset_url}}" style="display: none;" class="fw socks-preview-fade" alt="Low Cut Socks"/>
+  <img src="{{'low-layered-row.png' | asset_url}}" style="display: none;" class="fw socks-preview-fade" alt="Performance Socks"/>
+ 
+  <script>
+  $(document).ready(function() { 
+    setInterval(function() {
+      if ($('.socks-preview-fade:last-of-type').is(":visible") ) {
+        $('.socks-preview-fade-visible').removeClass('socks-preview-fade-visible').hide().siblings('.socks-preview-fade:first-of-type').show().addClass('socks-preview-fade-visible')
+      }
+      else {
+        $('.socks-preview-fade-visible').removeClass('socks-preview-fade-visible').hide().next('.socks-preview-fade').show().addClass('socks-preview-fade-visible')
+      }
+    }, 3000)
+  })
+  </script>
+  <section class="index-reviews">
     <iframe src="https://pacas-reviews.herokuapp.com/welcome/show" id="iFrame1"></iframe>
   </section> 
   <section class="accent-padding tac" id="softness-grid">
     <h3 class="tac" style="font-weight: normal;max-width: 800px; margin: 20px auto;">Alpacas' unique molecular composition combines the advantages of Merino Wool and Cashmere.</h3>
     <img data-src="{{'SoftnessScale_Desktop.png' | asset_url}}" alt="Softness Scale" class="fw do lazyload" style="max-width: 1200px; margin: 0 auto;">
-    <img data-src="{{'SoftnessScale_Mobile.png' | asset_url}}" alt="Softness Scale" class="fw mo lazyload">
+    <img data-src="{{'Off.png' | asset_url}}" alt="Softness Scale" class="fw mo lazyload">
   </section>
   <section class="accent-padding" style="background-color: #F2EEEB;">
      <h3 class="tac accent do">The Anatomy of Alpaca Fiber</h3>
-          <h3 class="tac accent mo">The Anatomy of Alpaca</h3>
-
+     <h3 class="tac accent mo">The Anatomy of Alpaca</h3>
   </section>
   <section id="alpaca-grid" class="accent-padding tac">
     <img data-src="{{'BenefitsAlpaca_TextDesktop.png' | asset_url}}" alt="Alpaca Benefits" class="fw do lazyload" style="max-width: 1200px; margin: 0 auto;">

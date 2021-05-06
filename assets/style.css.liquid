@@ -1411,12 +1411,8 @@ ness-faqs ul li { line-height: 3; }
 .faq span.answer { margin-top: 12pt; }
 #faq ul { list-style: none; padding-left: 0; }
 .faq .flex-container-no div, .faq .flex-container-no img { margin: 20px; }
+
 /* swatches */
-
-/* 
-   Swatches Styles
-*/
-
 {% assign width = '50px' %}
 {% assign height = '35px' %}
 .swatch { 
@@ -1581,6 +1577,30 @@ ness-faqs ul li { line-height: 3; }
   font-family:monospace;
 }
 /*collections*/
+.light { font-weight: 300 !important; }
+.collections-header-title { 
+  display: inline-block; 
+  vertical-align: top; 
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid gray;
+}
+.alpaca-head { 
+  max-width: 200px; 
+  min-width: 20%;
+  align-self: flex-end;
+}
+@media only screen and (max-width: 799px) {
+  .alpaca-head { 
+    max-width: 33%; 
+    position: absolute;
+  }
+  .collections-header-title {
+    margin:10px  10px 10px 20%;
+    padding: 10px;
+    border: 5px solid gray;
+  }
+}
 .product-collection {
     margin: 0 20px 20px 0;
     border: 1px solid #d1cdcd;
@@ -1599,94 +1619,6 @@ ness-faqs ul li { line-height: 3; }
   background-repeat: no-repeat; 
   min-height: 250px;
 }
-/*womens*/
-#c110002667620 .page-header {
-  background-color: #8FC5D1;
-  background-image: url({{'all-womens.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: white;
-}
-/*womens athletic*/
-#c113429512292 .page-header {
-  background-image: url({{'womens-athletic.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #B9D6E2;
-  color: white; 
-}
-/* womens casual */
-#c113429446756 .page-header {
-  background-image: url({{'womens-casual.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #9ABDCB;
-  color: white;
-}
-/*kids*/
-#c110012825700 .page-header{
-  background-image: url({{'all-kids.png' | asset_url}});
-     background-position: left bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #E0BC2E;
-    color: white; 
-}
-/* kids athletic */
-#c113430003812 .page-header {
-  background-image: url({{'all-kids.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #E0BC2E;
-  color: white; 
-}
-#c113429676132 .page-header {
-  background-image: url({{'all-kids.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #E0BC2E;
-  color: white; 
-}
-/*mens*/
-#c110002012260 .page-header {
-  background-color: #EFEEF0;
-  background-image: url({{'sample-background.jpeg' | asset_url}});
-  background-position: left bottom; 
-  background-size: cover;
-}
-/*mens athletic*/
-#c113429217380 .page-header {
-  background-image: url({{'mens-athletic.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #1C89CB;
-  color: white;
-}
-/*mens casual */
-#c113429020772 .page-header {
-  background-image: url({{'mens-casual.jpeg' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #2094D1;
-  color: white;
-}
-/*mens dress*/
-#c113429348452 .page-header {
-  background-image: url({{'mens-dress1.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #743240;
-  color: white;
-}
-
 .collection-circle {
     width: 10px;
     height: 10px;
@@ -1703,8 +1635,8 @@ ness-faqs ul li { line-height: 3; }
 }
 .collection p { font-size: 10pt; margin: 5px 0;}
 #collection-wrapper { align-items: flex-start }
-/*.text-lightgray { color:  #d1cdcd; }a
-*/.strike-through { text-decoration: line-through; }
+.strike-through { text-decoration: line-through; }
+
 /*cart page*/
 .cart-page .line-item-details input {
   border: 2px solid #F9F7F7;
