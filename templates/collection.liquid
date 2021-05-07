@@ -70,7 +70,7 @@
             <div class="accent-padding">
               <div class="slvr-col-img-wrapper">
           {%assign variantPhoto = variantCount | minus: 1 %}
-           <img src="{{ product.images[variantPhoto] | product_img_url: '2000x2000' }}" alt="{{product.title}}"/> 
+           <img data-src="{{ product.images[variantPhoto] | product_img_url: '500x500' }}" alt="{{product.title}}" class="lazyload"/> 
 
               </div> 
               <h3 class=" nmb">{{product.title}}</h3>
@@ -101,11 +101,11 @@
                 {% if variant.available %}
                   {% if variant.option2 %} 
                   {% for option in variant.option2 %}
-                  <div data-image-src="{{ variant.image.src | product_img_url: '2000x2000'  }}" class="clickable {{option | handleize}} color-preview-circle" style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;" ></div>
+                  <div data-image-src="{{ variant.image.src | product_img_url: '500x500'  }}" class="clickable {{option | handleize}} color-preview-circle" style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;" ></div>
                   {% endfor %}
                   {% else %}
                   {% for option in variant.option1 %}
-                  <div data-image-src="{{ variant.image.src | product_img_url: '2000x2000'  }}" class="clickable {{option | handleize}} color-preview-circle"style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;"></div>
+                  <div data-image-src="{{ variant.image.src | product_img_url: '500x500'  }}" class="clickable {{option | handleize}} color-preview-circle"style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;"></div>
                   {% endfor %}
                   {% endif %} 
                 {% endif %}
@@ -115,11 +115,11 @@
                 {% if variant.available %}
                   {% if variant.option2 %} 
                   {% for option in variant.option2 %}
-                  <div data-image-src="{{ variant.image.src | product_img_url: '2000x2000'  }}" class="clickable {{option | handleize}} color-preview-circle" style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;" ></div>
+                  <div data-image-src="{{ variant.image.src | product_img_url: '500x500'  }}" class="clickable {{option | handleize}} color-preview-circle" style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;" ></div>
                   {% endfor %}
                   {% else %}
                   {% for option in variant.option1 %}
-                  <div data-image-src="{{ variant.image.src | product_img_url: '2000x2000'  }}" class="clickable {{option | handleize}} color-preview-circle"style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;"></div>
+                  <div data-image-src="{{ variant.image.src | product_img_url: '500x500'  }}" class="clickable {{option | handleize}} color-preview-circle"style="background-image: url({{ option | handle | append: '.png' | asset_url }});background-size: cover;"></div>
                   {% endfor %}
 
                   {% endif %} 
@@ -476,9 +476,51 @@
     </section>
   {% endif %}  
   </section>
+  <section class="view-more-products flex-container jcc">
+    <div>
+      <a href="/collections/womens-no-show">
+        <img src="{{'W.No.png' | asset_url}}" />
+        <p class="tac">Shop Women's No Show</p>
+      </a>
+    </div>
+    <div>
+      <a href="/collections/womens-low-cut">
+        <img src="{{'W.Low.png' | asset_url}}" />
+        <p class="tac">Shop Women's Low Cut</p>
+      </a>
+    </div>
+    <div>
+      <a href="/collections/womens-crew">
+        <img src="{{'W.Crew.png' | asset_url}}" />
+        <p class="tac">Shop Women's Crew</p>
+      </a>
+    </div>
+    <div>
+      <a href="/collections/womens-performance">
+        <img src="{{'W.Perf.png' | asset_url}}" />
+        <p class="tac">Shop Women's Performance</p>
+      </a>
+    </div>
+        <div>
+      <a href="/collections/mens-low-cut">
+        <img src="{{'M.Low.png' | asset_url}}" />
+        <p class="tac">Shop Men's Low Cut</p>
+      </a>
+    </div>
+        <div>
+      <a href="/collections/mens-crew">
+        <img src="{{'M.Crew.png' | asset_url}}" />
+        <p class="tac">Shop Men's Crew</p>
+      </a>
+    </div>
+  </section>
 </main>
 <style>
+  .view-more-products div { margin: 5px;  }
+  .slvr-col-img-wrapper img { width: 100%; } 
    #toddler-placeholder {
+  
+  
 /*     background-color:#C8D2D3;  */
     background-image: url("{{'KidsLifestyleShoot_Toddler3.png' | asset_url}}"); 
       background-position: bottom center; 
