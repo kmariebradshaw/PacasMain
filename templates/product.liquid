@@ -1,22 +1,14 @@
-<style>
-nav {
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.2);
-  background: white;
-}
-</style>  
-
 <main id="product" itemscope itemtype="http://schema.org/Product">
-<meta itemprop="name" content="{{ product.title }}">
-<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-<meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
-
-<section class="flex-container-do accent-padding">
+  <meta itemprop="name" content="{{ product.title }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
+   <section class="flex-container-do accent-padding aifs">
       <h3 class="nmb mo-plus tac">{{ product.title }}</h3>
 
   <div class="half-do" id="product-image-wrapper">
     <div class="flex-container-no jcc">
       {% unless product.type == "Gift Card" %}
-        <div class="left-arrow clickable"><p class="large">⌃</p></div>
+        <div class="left-arrow clickable"><p class="large" style="font-size: 22pt">⌃</p></div>
       {% endunless %}
       <div class="tac">
         {% for variant in product.variants %}
@@ -35,7 +27,7 @@ nav {
         {% endif %}
       </div>
       {% unless product.type == "Gift Card" %}
-        <div class="right-arrow clickable"><p class="large">⌃</p></div>
+        <div class="right-arrow clickable"><p class="large" style="font-size: 22pt;">⌃</p></div>
       {% endunless %}
     </div>
     <p class="tac do">{{ product.description }}</p> 
@@ -105,7 +97,7 @@ nav {
           <style>
             .quick-pay-options img { margin: 2.5px; max-width: 50%; width: 100px; }
           </style>
-          <p class="tac subscript">Your purchase will help donate Pacas socks to a child staying at a local children's hospital. <span id="donation-learn-more" class="tu clickable">Learn more.</span></p>
+          <p class="tac subscript">Your purchase will help donate Pacas socks to a child staying at a local children's hospital. <a href="/pages/our-story" class="tu clickable">Learn more.</a></p>
 
 
           {% endif %}
@@ -117,7 +109,7 @@ nav {
 </style>
          <img src="{{'PacasBug-03.png' | asset_url }}" class="product-guarantee mo-plus block ma" alt="Comfort Guaranteed"/> 
           {% endif %}
-          <p class="tac mo">{{ product.description }}</p>
+          <p class="tac mo nmb">{{ product.description }}</p>
 
         </div>
 
@@ -228,7 +220,14 @@ nav {
     });
   </script>
   {% endif %}
-
+   <section class="accent-padding">
+        <video autoplay muted loop playsinline controls style="width: 100%; height: 100%;" class="mo">
+         <source src="{{'Pacas.Finalvideo.mp4' | asset_url}}" type="video/mp4">
+       </video>
+          <video autoplay muted loop playsinline controls style="width: 100%; height: 100%;" class="do">
+         <source src="{{'Pacas.Finalvideo.mp4' | asset_url}}" type="video/mp4">
+       </video>
+    </section>
   <section class="product-benefits background-blue flex-container double-padding-tbo">
     <div class="mo fw">
       <div class="tac accent-padding">

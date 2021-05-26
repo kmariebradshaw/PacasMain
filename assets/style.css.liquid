@@ -16,7 +16,7 @@
     font-display: block;
 
 }
-@font-face {
+@font-face { 
   font-family: 'Quicksand';
   src: url('Quicksand-Regular.ttf'); 
   font-weight: 400; 
@@ -105,6 +105,8 @@ html { padding-bottom: 0 !important; }
 .background-green {background-color: #ECF7EA;}
 .background-beige {background-color: #f2eeeb;}
 .background-yellow {background-color: #fffffa;}
+
+.background-off-white { background-color: #F5F8F8; }
 .tar { text-align: right; }
 .fw { width: 100%; }
 .flex-container-no, .flex-container, .flex-container-do{
@@ -170,7 +172,6 @@ img { max-width: 100%; }
     background-position: bottom center;
   }
   #faq .page-header {
-    background-size: 1300px !important;
     height: 600px;
   }
   #materials-grid div, #materials-grid > img {
@@ -205,7 +206,6 @@ img { max-width: 100%; }
   }
 #faq .page-header {
     height: 500px;
-    background-size: 75% !important;
 }
 #hd1 {
     width: 13vw;
@@ -247,7 +247,6 @@ img { max-width: 100%; }
 
   #faq .page-header {
     height: 400px;
-    background-size: 75% !important;
 }
 #hd1 {
     width: 13vw;
@@ -285,6 +284,7 @@ img { max-width: 100%; }
   #our-story .page-header { height: 400px;}
   .product-benefits .two-thirds .half { margin: 25px 15px; }
 }
+.soldout { display: none; }
 .product-guarantee { width: 320px; max-width: 100%; margin: 20px auto;}
 @media only screen and (min-width: 800px) {
   .page-header { padding: 50px; box-sizing: border-box; }
@@ -402,7 +402,6 @@ img { max-width: 100%; }
   #side-paca-text { padding-right: 30px; }
    #faq .page-header {
     height: 200px;
-    background-size: 75% !important;
 }
     .index-guarantee { width: 250px; }
 
@@ -539,7 +538,6 @@ img { max-width: 100%; }
   #no-itch { margin-left: 33%; }
 }
 @media only screen and (max-width: 400px) {
-    #faq .page-header { background-position: bottom;}
 
 }
 @media only screen and (min-width: 401px) {
@@ -563,10 +561,20 @@ p, textarea, td, ul, li, .error_message, .success_message, .errors { font-family
   overflow: hidden;
 }
 
+.all-socks-slide {
+  height: 200px !important;
+}
+
 .sliding-background {
   height: 100px;
   width: 5076px;
   animation: slide 60s linear infinite;
+}
+.all-socks-slide {
+    background: url("{{'Spaced.Long.png' | asset_url}}") repeat-x;
+          background-size: contain; 
+
+
 }
 .toddlerslide {
     background: url("{{'Tot.row.png' | asset_url}}") repeat-x;
@@ -1028,11 +1036,7 @@ p.x-large { font-size: 30pt; }
 }
 
 .accent-section { padding: 50px; }
-#fresh {
-    background-image:linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url("{{'fleece.jpg' | asset_url}}");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 #header-spreader { max-width: 1250px; margin: 0 auto; }
 /* flow */
 #charity-slide { 
@@ -1179,11 +1183,7 @@ body section #shaver.rotate { transform: rotate(-10deg); }
     margin-bottom: 400px; 
   }
 }
-#our-story .page-header { 
-  background-image: url("{{'girl-with-paca.png' | asset_url}}"); 
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .rounded-image { border-radius: 20px; }
 /*product pages*/
 @media only screen and (max-width: 799px) {
@@ -1228,9 +1228,10 @@ main .shopify-cleanslate div, main .shopify-cleanslate button, main .shopify-cle
     max-width: 500px;
     margin: 0 auto;
 }
-#featured_image {
-  touch-action: none;
-}
+/*#featured_image {
+      touch-action: auto;
+    -ms-touch-action: auto;
+}*/
 #quantity-wrapper .additional-label { width: 25%; }
 #product .additional-label {
     color: #d1cdcd ;
@@ -1402,19 +1403,16 @@ ness-faqs ul li { line-height: 3; }
 #faq .page-header { 
   background-image: url("{{'paca-faq.png' | asset_url}}"); 
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain !important;
+  background-position: bottom right;
 
 }
 .faq .closed + .flex-container-do { display: none !important; }
 .faq span.answer { margin-top: 12pt; }
 #faq ul { list-style: none; padding-left: 0; }
 .faq .flex-container-no div, .faq .flex-container-no img { margin: 20px; }
+
 /* swatches */
-
-/* 
-   Swatches Styles
-*/
-
 {% assign width = '50px' %}
 {% assign height = '35px' %}
 .swatch { 
@@ -1579,6 +1577,30 @@ ness-faqs ul li { line-height: 3; }
   font-family:monospace;
 }
 /*collections*/
+.light { font-weight: 300 !important; }
+.collections-header-title { 
+  display: inline-block; 
+  vertical-align: top; 
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid gray;
+}
+.alpaca-head { 
+  max-width: 200px; 
+  min-width: 20%;
+  align-self: flex-end;
+}
+@media only screen and (max-width: 799px) {
+  .alpaca-head { 
+    max-width: 33%; 
+    position: absolute;
+  }
+  .collections-header-title {
+    margin:10px  10px 10px 20%;
+    padding: 10px;
+    border: 5px solid gray;
+  }
+}
 .product-collection {
     margin: 0 20px 20px 0;
     border: 1px solid #d1cdcd;
@@ -1597,94 +1619,6 @@ ness-faqs ul li { line-height: 3; }
   background-repeat: no-repeat; 
   min-height: 250px;
 }
-/*womens*/
-#c110002667620 .page-header {
-  background-color: #8FC5D1;
-  background-image: url({{'all-womens.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: white;
-}
-/*womens athletic*/
-#c113429512292 .page-header {
-  background-image: url({{'womens-athletic.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #B9D6E2;
-  color: white; 
-}
-/* womens casual */
-#c113429446756 .page-header {
-  background-image: url({{'womens-casual.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #9ABDCB;
-  color: white;
-}
-/*kids*/
-#c110012825700 .page-header{
-  background-image: url({{'all-kids.png' | asset_url}});
-     background-position: left bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #E0BC2E;
-    color: white; 
-}
-/* kids athletic */
-#c113430003812 .page-header {
-  background-image: url({{'all-kids.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #E0BC2E;
-  color: white; 
-}
-#c113429676132 .page-header {
-  background-image: url({{'all-kids.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #E0BC2E;
-  color: white; 
-}
-/*mens*/
-#c110002012260 .page-header {
-  background-color: #EFEEF0;
-  background-image: url({{'sample-background.jpeg' | asset_url}});
-  background-position: left bottom; 
-  background-size: cover;
-}
-/*mens athletic*/
-#c113429217380 .page-header {
-  background-image: url({{'mens-athletic.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #1C89CB;
-  color: white;
-}
-/*mens casual */
-#c113429020772 .page-header {
-  background-image: url({{'mens-casual.jpeg' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #2094D1;
-  color: white;
-}
-/*mens dress*/
-#c113429348452 .page-header {
-  background-image: url({{'mens-dress1.png' | asset_url}});
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #743240;
-  color: white;
-}
-
 .collection-circle {
     width: 10px;
     height: 10px;
@@ -1701,8 +1635,8 @@ ness-faqs ul li { line-height: 3; }
 }
 .collection p { font-size: 10pt; margin: 5px 0;}
 #collection-wrapper { align-items: flex-start }
-/*.text-lightgray { color:  #d1cdcd; }a
-*/.strike-through { text-decoration: line-through; }
+.strike-through { text-decoration: line-through; }
+
 /*cart page*/
 .cart-page .line-item-details input {
   border: 2px solid #F9F7F7;
