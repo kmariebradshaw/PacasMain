@@ -27,6 +27,9 @@
         {% if collection.title contains "Low Cut" %}
           <img src="{{'men-low-cut-col.png' | asset_url}}" class="fw do" />
           <img src="{{'MenLow_Stack.png' | asset_url}}" class="fw mo" />
+        {% elsif collection.title contains "Performance" %}
+          <img src="{{'men.spaced.row.performance.png' | asset_url}}" class="fw do" />
+          <img src="{{'mens-stacked-performance.png' | asset_url}}" class="fw mo" />
         {% elsif collection.title contains "Crew" %}
            <img src="{{'men-col-crew.png' | asset_url}}" class="fw do" />
            <img src="{{'men-crew-stack.png' | asset_url}}" class="fw mo" />
@@ -81,13 +84,14 @@
               <p class="subscript vis-hid">Qualifies for Free Shipping!</p>
 
               {% endif %}
+              {% unless product.tags contains "Performance" %}
                  {% if product.tags contains 'Kids' or product.tags contains "Men's" %}
                 {% assign variantCount = variantCount | plus: 3 %}
           
             {% endif %}
+            {% endunless %}
               <div class="acfe">
                 <!--            store variant as data attr on circle  -->
-
 
              {% capture limit_color %}
                 {% if product.tags contains "Kids" %}
@@ -169,7 +173,7 @@
       </section>{% endcomment %}
 
     </section>
-    {% elsif collection.title == "Men's Crew" %}
+    {% elsif collection.title == "Men's Crew"  %}
       <section class="col gif-insert" id="image-insert-1">
       <section class="card" style="border: none" id="image-break-mens-crew">
       </section>
@@ -185,6 +189,24 @@
       <section class="card" style="border: none" id="image-break-mens-crew-3">
       </section>{% endcomment %}
 
+    </section>
+        {% elsif collection.title == "Men's Performance"%}
+      <section class="col gif-insert" id="image-insert-1">
+      <section class="card" style="border: none" id="image-break-mens-crew">
+      </section>
+
+    </section>
+        <section class="col gif-insert" id="image-insert-2">
+      <section class="card" style="border: none" id="image-break-mens-crew-2">
+      </section>
+
+    </section>
+        <section class="col gif-insert" id="image-insert-3">
+      <section class="card" style="border: none" id="image-break-mens-crew-3">
+      </section>
+          <section class="col gif-insert" id="image-insert-4">
+      <section class="card" style="border: none" id="image-break-womens-crew-2">
+      </section>
     </section>
     {% elsif collection.title == "Women's Performance"%}
     <section class="col gif-insert" id="image-insert-1">
