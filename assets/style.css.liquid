@@ -554,7 +554,7 @@ img { max-width: 100%; }
 }
 .accent { font-family: 'BowlbyOne', sans-serif; font-weight: 300;}
 h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'GlacialIndifference', sans-serif; }
-p, textarea, td, ul, li, .error_message, .success_message, .errors { font-family: 'GlacialIndifference', sans-serif; } 
+p, textarea, td, ul, li, .error_message, .success_message, .errors, div { font-family: 'GlacialIndifference', sans-serif; } 
 /*header*/
 /* scrolling nav */
 .wrap-container {
@@ -1198,7 +1198,6 @@ body section #shaver.rotate { transform: rotate(-10deg); }
     position: absolute;
 }
 }
-main .shopify-cleanslate div, main .shopify-cleanslate button, main .shopify-cleanslate input[type='submit'], .shopify-payment-button__button--unbranded { border-radius: 200px !important; margin: 10px 0 !important; }
  
 .shopify-payment-button__more-options {
     background: transparent;
@@ -1258,25 +1257,7 @@ main .shopify-cleanslate div, main .shopify-cleanslate button, main .shopify-cle
     -webkit-appearance: none;
 }
 .single-option-selector { width: 100% !important; }
-#quantity-wrapper, .single-option-selector { 
-  width: 40%; 
-  border: 1px solid #d1cdcd;
-  border-radius: 80px;
-      margin: 5px 0 0 0;
-  height: 48px;
-  padding: 10px;
-  color: #7b8284; 
-  background-color: white; 
-  box-sizing: border-box;
-  justify-content: center;
-  vertical-align: middle;
-      -webkit-appearance: none;
-    -moz-appearance: none;
-    background-position: 97% center;
-    background-repeat: no-repeat;
-    background-image: url("{{'dropdown.png' | asset_url}}");
-    background-size: 20px;
-}
+
 .circle {
     width: 7px;
     height: 7px;
@@ -1300,16 +1281,7 @@ main .shopify-cleanslate div, main .shopify-cleanslate button, main .shopify-cle
   transform: rotate(180deg);
   cursor: pointer;
 }
-.add-to-cart {
-    padding: 15px;
-    width: 100%;
-    border-radius: 80px;
-    margin: 20px 0 0 0;
-    box-sizing: border-box;
-    border: 1px solid #7b8284;
-/*     background: #7b8284; */
-  background: black; 
-}
+
 .add-to-cart  span {
     font-size: 10pt;
     color: white;
@@ -1459,10 +1431,7 @@ ness-faqs ul li { line-height: 3; }
 .color.swatch-element label { padding:0; }
 /* Styling selected swatch */
 /* Slightly raised */
-.swatch .color input:checked + .color-padding {
-    border: 1px solid #d1cdcd;
 
-} 
 
 .color-padding {
     padding: 3px;

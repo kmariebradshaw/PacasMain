@@ -2,44 +2,148 @@
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
-   <section class="flex-container-do accent-padding aifs">
-      <h3 class="nmb mo-plus tac">{{ product.title }}</h3>
+  <section class="flex-container-do accent-padding aifs">
+    
+      <style>
+        #product-image-wrapper .product-inner-wrap img{ background-color: #F5F8F8; }
+        .mobile-product-title { margin: 10px 0 0 0; }
+        .mobile-review-wrapper { margin-bottom: 10px; }
+        #product-image-wrapper { 
+    scroll-snap-type: x mandatory;
 
-  <div class="half-do" id="product-image-wrapper">
-    <div class="flex-container-no jcc">
-      {% unless product.type == "Gift Card" %}
-        <div class="left-arrow clickable"><p class="large" style="font-size: 22pt">⌃</p></div>
-      {% endunless %}
-      <div class="tac">
+          width: 100%; 
+          overflow: scroll; 
+          white-space: nowrap;
+          display: inline-block;
+}
+        #product-image-wrapper .product-inner-wrap {
+          display: inline-block;
+          margin-right: ;
+          width: 100vw;
+          vertical-align: middle;
+          scroll-snap-align: start;
+        }
+        .product-scroll-menu {
+          margin-top: -8px;
+        }
+        .product-scroll-menu > div { 
+          width: 25%;
+          height: 9px;
+          background-color: lightgray;
+          margin-right: 2px;
+       }
+       .product-scroll-menu > div:last-of-type {
+        margin-right: 0 !important;
+       }
+       .product-scroll-menu > div.active { background-color: black; }
+       #quantity-wrapper, .single-option-selector { 
+  width: 40%; 
+  border: 1px solid lightgray;
+  border-radius: 5px;
+      margin: 5px 0 0 0;
+  height: 48px;
+  padding: 10px;
+  color: #7b8284; 
+  background-color: white; 
+  box-sizing: border-box;
+  justify-content: center;
+  vertical-align: middle;
+      -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    background-image: url("{{'dropdown.png' | asset_url}}");
+    background-size: 20px;
+}
+.selector-wrapper { margin-right: 5px; }
+.add-to-cart {
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 10px 0 0 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+/*     background: #7b8284; */
+  background: black; 
+}
+.swatch .color input:checked + .color-padding {
+    border: 1px solid black;
+} 
+.sealsubs-target-element {
+    display: block;
+    flex: 1 1 100%;
+    clear: both;
+    margin: 20px 0 0 0;
+    font-size: 10pt;
+}
+[data-product] .sls-purchase-options-container { border-radius: 5px !important; }
+.sealsubs-container label, .sls-price { font-size: 10pt; }
+.strike-through { color: lightgray; }
+main .shopify-cleanslate div, main .shopify-cleanslate button, main .shopify-cleanslate input[type='submit'], .shopify-payment-button__button--unbranded { border-radius: 5px !important; margin: 10px 0 !important; }
+.text-blue { color: navy; font-weight: bold; }
+.ruler {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  max-width: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.sls-purchase-options-label { display: none; }
+.sealsubs-container .sls-purchase-options-container .sls-option-container, .sealsubs-container .sls-purchase-options-container .sls-option-container.sls-active {
+    border: none;
+    border-bottom: 1px solid rgba(198, 198, 198, 0.55);
+    padding: 10px;
+    border-radius: 0;
+}
+      </style>
+
+
+
+    {% comment %} Breaks the title into two lines two use separately {% endcomment %}
+    {% assign mobile_title = product.title | split: '-' %}
+    {% assign collection_title = product.collections.first.title %}
+    <h1 class="mo-plus tac mobile-product-title">{{collection_title}} - {{mobile_title | first}}<br>{{mobile_title | last | remove: "Men's" | remove: "Women's" }}</h1>
+    <div class="mo-plus mobile-review-wrapper"> {% include 'reviews' %}</div>
+
+    {% comment %}CSS Only Product Scroll{% endcomment %}
+    <div class="half-do" id="product-image-wrapper">
+        {% assign avaiable_variant_loop = 0 %}
         {% for variant in product.variants %}
-        {% if variant.available %}
-        <img src="{{ variant.featured_image.src | img_url: '2000x2000' }}" class="fw" id="featured_image" alt="{{variant.name}}">
-        {% break %}
-        {% endif %}
+          {% if variant.available %}
+            {% assign available_variant_loop = available_variant_loop | plus: 1 %}
+            {% if available_variant_loop < 5 %}
+              <div class="tac product-inner-wrap">
+              {% if available_variant_loop == 0 %}
+                <img src="{{ variant.featured_image.src | img_url: '2000x2000' }}" class="fw" id="featured_image" alt="{{variant.name}}" />
+              {% else %}
+                <img src="{{ variant.featured_image.src | img_url: '2000x2000' }}" class="fw" alt="{{variant.name}}"/>
+              {% endif %}
+            </div>
+            {% else %}
+              {% break %}
+            {% endif %}
+          {% endif %}
         {% endfor %}
-        {% if product.images.size > 1 %}
-        {% for image in product.images | limit: 1 %}
-        <div class="circle selected" data-image-source="{{image.src | img_url: '2000x2000' }}"></div>
-        {% endfor %}
-        {% for image in product.images | offset: 1 | limit: 3 %}
-        <div class="circle" data-image-source="{{image.src | img_url: '2000x2000' }}"></div>
-        {% endfor %}
-        {% endif %}
-      </div>
-      {% unless product.type == "Gift Card" %}
-        <div class="right-arrow clickable"><p class="large" style="font-size: 22pt;">⌃</p></div>
-      {% endunless %}
+
     </div>
+        <div class="flex-container-no product-scroll-menu">
+          <div></div>
+          <div class="active"></div>
+          <div></div>
+          <div></div>
+        </div>
+
+  <div class="half-do do" id="product-image-wrapper">
     <p class="tac do">{{ product.description }}</p> 
     {% if product.tags contains "Socks" %}
     <img src="{{'PacasBug-03.png' | asset_url }}" alt="Comfort Guaranteed" class="index-guarantee do block ma"/>
     {% endif %}
   </div>
+
   <div class="half-do tac accent-padding" id="form-wrapper">
     <h3 class="nmb do">{{ product.title }}</h3>
     {% if product.available %}
     {% form 'product', product, class: "checkout" %}
-
       <div class="tac fw">
 
         {% if product.available and product.type != "Gift Card" %}
@@ -50,16 +154,18 @@
         <p class="tac">Gift cards are delivered by email and contain instructions to redeem them at checkout. Our gift cards have no additional processing fees.
 
         </p>
-        {% else %}
-        <p class="tac nm">{{product.price | money }} <span class="strike-through subscript">{{product.compare_at_price | money }}</span></p>
         {% endif %}
+        
+        <p class="tac nm">{{product.price | money }} <span class="strike-through subscript">{{product.compare_at_price | money }}</span>
         {% if product.price > 4500 %}
-        <p class="tac">Qualifies for Free Shipping!</p>
+          <psan>| </span><span class="tac text-blue"> Qualifies for Free Shipping!</span>
         {% endif %}
+      </p>
+      <div class="sealsubs-target-element" data-product="{{ product | json | escape }}" data-handle="{{ product.handle }}"></div>
         {% if product.tags contains "Socks"  %}
         {% if product.tags contains "Kids" %}
         {% else %}
-        <p class="subscript clickable" id="size-chart"><b>See Size Guide</b></p>
+        <p class="clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" class="ruler">See Size Guide</p>
         {% endif %}
         {% endif %}
         <div class="flex-container-no jcc">
@@ -101,8 +207,9 @@
 
 
           {% endif %}
+          <div class="do">
           {% include 'reviews' %}
-
+</div>
           {% if product.tags contains "Socks" %}
 <style>
 [data-option="option2"] { display: none;  }
